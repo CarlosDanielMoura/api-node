@@ -1,9 +1,12 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import User from "../models/UserModel";
+import conectDB from "../models/Database";
 
 class UserController {
-  constructor() {}
+  constructor() {
+    conectDB();
+  }
 
   async createUser(req: Request, res: Response) {
     const { name, email, password, confirmPassword } = req.body;
